@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Contact form with client-side validation and API integration">
+    <title>Task 2 — Form & API Integration</title>
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <main class="main-container">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 col-md-10 col-12">
+                    <div class="form-card">
+                        <!-- Header Section -->
+                        <header class="text-center mb-5">
+                            <h1 class="form-title">Get in Touch</h1>
+                            <p class="form-subtitle">Fill out the form below and we'll get back to you as soon as possible.</p>
+                        </header>
+
+                        <!-- Alert Containers -->
+                        <div id="successAlert" class="alert alert-success d-none" role="alert" aria-live="polite">
+                            <strong>Success!</strong> Your information has been successfully submitted.
+                        </div>
+
+                        <div id="errorAlert" class="alert alert-danger d-none" role="alert" aria-live="assertive">
+                            <strong>Error!</strong> <span id="errorMessage">Something went wrong. Please try again.</span>
+                        </div>
+
+                        <!-- Contact Form -->
+                        <form id="contactForm" novalidate>
+                            <div class="row g-3">
+                                <!-- Full Name -->
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="fullName" class="form-label">
+                                            Full Name <span class="required-mark" aria-label="required">*</span>
+                                        </label>
+                                        <input 
+                                            type="text" 
+                                            class="form-control" 
+                                            id="fullName" 
+                                            name="fullName"
+                                            required
+                                            aria-required="true"
+                                            aria-describedby="fullNameError"
+                                            placeholder="Enter your full name"
+                                        >
+                                        <div id="fullNameError" class="invalid-feedback"></div>
+                                    </div>
+                                </div>
+
+                                <!-- Email Address -->
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="email" class="form-label">
+                                            Email Address <span class="required-mark" aria-label="required">*</span>
+                                        </label>
+                                        <input 
+                                            type="email" 
+                                            class="form-control" 
+                                            id="email" 
+                                            name="email"
+                                            required
+                                            aria-required="true"
+                                            aria-describedby="emailError"
+                                            placeholder="Enter your email"
+                                        >
+                                        <div id="emailError" class="invalid-feedback"></div>
+                                    </div>
+                                </div>
+
+                                <!-- Phone Number -->
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="phone" class="form-label">
+                                            Phone Number <span class="required-mark" aria-label="required">*</span>
+                                        </label>
+                                        <input 
+                                            type="tel" 
+                                            class="form-control" 
+                                            id="phone" 
+                                            name="phone"
+                                            required
+                                            aria-required="true"
+                                            aria-describedby="phoneError"
+                                            placeholder="Enter your phone number"
+                                        >
+                                        <div id="phoneError" class="invalid-feedback"></div>
+                                    </div>
+                                </div>
+
+                                <!-- Subject -->
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="subject" class="form-label">
+                                            Subject <span class="required-mark" aria-label="required">*</span>
+                                        </label>
+                                        <input 
+                                            type="text" 
+                                            class="form-control" 
+                                            id="subject" 
+                                            name="subject"
+                                            required
+                                            aria-required="true"
+                                            aria-describedby="subjectError"
+                                            placeholder="Enter subject"
+                                        >
+                                        <div id="subjectError" class="invalid-feedback"></div>
+                                    </div>
+                                </div>
+
+                                <!-- Message -->
+                                <div class="col-12">
+                                    <div class="form-group">
+                                        <label for="message" class="form-label">
+                                            Message <span class="required-mark" aria-label="required">*</span>
+                                        </label>
+                                        <textarea 
+                                            class="form-control" 
+                                            id="message" 
+                                            name="message"
+                                            rows="5"
+                                            required
+                                            aria-required="true"
+                                            aria-describedby="messageError"
+                                            placeholder="Enter your message (minimum 10 characters)"
+                                        ></textarea>
+                                        <div id="messageError" class="invalid-feedback"></div>
+                                    </div>
+                                </div>
+
+                                <!-- Submit Button -->
+                                <div class="col-12">
+                                    <button 
+                                        type="submit" 
+                                        id="submitBtn"
+                                        class="btn btn-primary btn-lg w-100 submit-btn"
+                                    >
+                                        <span id="btnText">Submit</span>
+                                        <span id="btnSpinner" class="spinner-border spinner-border-sm d-none" role="status" aria-hidden="true"></span>
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom JavaScript -->
+    <script src="js/script.js"></script>
+</body>
+</html>
